@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Get an quote for high-quality landscaping, hardscaping, and concrete services in the Greater Omaha Metro." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/build/style.css" />
+    <title>Greenway Yard & Landscape | Get a Free Landscaping Quote</title>
+    <!--[if IE]><link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" /><![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+
+  <body>
+    <header>
+      <nav aria-label="Main">
+        <a href="/index.html"><img src="/assets/logos/logo-lt.png" alt="Greenway Yard and Landscaping home" class="logo" /></a>
+        <ul class="main-navigation | ff-primary fw-regular text-primary-lt w-0" role="list" id="main-navigation">
+          <li><img src="/assets/nav/greenway-g.svg" alt="Greenway Yard and Landscape logo" aria-hidden="true" /></li>
+          <li><a href="index.html" class="no-text-decor py-1">Home</a></li>
+          <hr />
+          <li><a href="services.html" class="no-text-decor py-1">Services</a></li>
+          <hr />
+          <li><a href="process.html" class="no-text-decor py-1">Process</a></li>
+          <hr />
+          <li><a href="contact.html" class="active-page | no-text-decor py-1">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle" aria-controls="main-navigation" aria-expanded="false">
+          <img src="/assets/nav/menu-open.svg" alt="toggle menu open" aria-hidden="true" />
+          <img src="/assets/nav/menu-close.svg" alt="toggle menu close" aria-hidden="true" hide />
+          <span class="accessible-hidden">Menu</span>
+        </button>
+      </nav>
+      <h1 class="container fs-primary-heading text-accent fw-bold mt-5 mb-1">Let's Discuss Your Next Project</h1>
+      <p class="container ff-primary">
+        Fill out this form, or give us a call, so we can start the process of providing you with a free estimate.
+      </p>
+    </header>
+    <div class="container contact-grid">
+      <form method="post" name="quote-form" class="box-3 quote-form ff-primary" action="quote-form.php">
+        <fieldset class="active">
+          <legend>
+            <h2>Contact Info</h2>
+          </legend>
+          <label for="name" class="accessible-hidden">Name</label>
+          <input type="text" name="name" id="name" placeholder="Name" />
+          <label for="email" class="accessible-hidden">Email</label>
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <label for="phone" class="accessible-hidden">Phone</label>
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <h2>Project Location</h2>
+          </legend>
+          <label for="address" class="accessible-hidden">Street Address</label>
+          <input type="text" name="address" id="address" placeholder="Street Address" />
+          <label for="city" class="accessible-hidden">City</label>
+          <input type="text" name="city" id="city" placeholder="City" />
+          <label for="state" class="accessible-hidden">State</label>
+          <input type="text" name="state" id="state" placeholder="State" />
+          <label for="state" class="accessible-hidden">State</label>
+          <label for="zip" class="accessible-hidden">Zip Code</label>
+          <input type="number" name="zip" id="zip" placeholder="Zip Code" />
+          <fieldset class="options-group">
+            <h3>Is this on new construction?</h3>
+            <label for="newhome-true" class="option-list">
+              <input type="radio" name="isnewhome" value="true" id="newhome-true" />
+              Yes
+            </label>
+            <label for="newhome-false" class="option-list">
+              <input type="radio" name="isnewhome" value="false" id="newhome-false" />
+              No
+            </label>
+          </fieldset>
+          <label for="builder" class="accessible-hidden builder-name" hide>Builder Name</label>
+          <input type="text" name="builder" id="builder" class="builder-name" placeholder="Builder Name" hide />
+        </fieldset>
+        <fieldset>
+          <legend>
+            <h2>Project Type</h2>
+          </legend>
+          <fieldset class="options-group">
+            <legend>
+              <h3>Interests</h3>
+            </legend>
+            <label for="concrete">
+              <input type="checkbox" name="type[]" value="concrete" id="concrete" />
+              Concrete
+            </label>
+            <label for="paver-stone-patio">
+              <input type="checkbox" name="type[]" value="paver-stone-patio" id="paver-stone-patio" />
+              Paver/Stone Patio
+            </label>
+            <label for="retaining-wall">
+              <input type="checkbox" name="type[]" value="retaining-wall" id="retaining-wall" />
+              Retaining Wall
+            </label>
+            <label for="outdoor-kitchen/bar">
+              <input type="checkbox" name="type[]" value="outdoor-kitchen/bar" id="outdoor-kitchen/bar" />
+              Outdoor Kitchen/Bar
+            </label>
+            <label for="pool-house-outdoor-room">
+              <input type="checkbox" name="type[]" value="pool-house-outdoor-room" id="pool-house-outdoor-room" />
+              Pool House/Outdoor Room
+            </label>
+            <label for="water-feature">
+              <input type="checkbox" name="type[]" value="water-feature" id="water-feature" />
+              Water Feature
+            </label>
+            <label for="fireplace-firepit">
+              <input type="checkbox" name="type[]" value="fireplace-firepit" id="fireplace-firepit" />
+              Fireplace/Firepit
+            </label>
+            <label for="landscape-lighting">
+              <input type="checkbox" name="type[]" value="landscape lighting" id="landscape-lighting" />
+              Landscape Lighting
+            </label>
+            <label for="deck">
+              <input type="checkbox" name="type[]" value="deck" id="deck" />
+              Deck
+            </label>
+          </fieldset>
+          <fieldset class="options-group">
+            <legend>
+              <h3>Landscape Style</h3>
+            </legend>
+            <label for="modern">
+              <input type="checkbox" name="style[]" value="modern" id="modern" />
+              Modern
+            </label>
+            <label for="country">
+              <input type="checkbox" name="style[]" value="country" id="country" />
+              Country
+            </label>
+            <label for="traditional">
+              <input type="checkbox" name="style[]" value="traditional" id="traditional" />
+              Traditional
+            </label>
+            <label for="elegant">
+              <input type="checkbox" name="style[]" value="elegant" id="elegant" />
+              Elegant
+            </label>
+            <label for="natural">
+              <input type="checkbox" name="style[]" value="natural" id="natural" />
+              Natural
+            </label>
+            <label for="rustic">
+              <input type="checkbox" name="style[]" value="rustic" id="rustic" />
+              Rustic
+            </label>
+          </fieldset>
+          <label for="description" class="accessible-hidden">Project Description</label>
+          <textarea name="description" id="description" placeholder="Project Description"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <h2>Additional Details</h2>
+          </legend>
+          <label for="budget" class="accessible-hidden">Budget</label>
+          <select class="options-group" name="budget" id="budget">
+            <option disabled selected hidden>Budget</option>
+            <option value="5-10">$5,000 - $10,000</option>
+            <option value="10-25">$10,000 - $25,000</option>
+            <option value="25-50">$25,000 - $50,000</option>
+            <option value="50-100">$50,000 - $100,000</option>
+            <option value="100+">$100,000+</option>
+          </select>
+          <label for="date" class="accessible-hidden">Desired Start Date</label>
+          <input type="text" name="date" id="date" placeholder="Desired Start Date" />
+          <label for="comments" class="accessible-hidden">Additional Comments</label>
+          <textarea name="comments" id="comments" placeholder="Additional Comments"></textarea>
+        </fieldset>
+        <div class="btn-set mt-3">
+          <button class="btn btn-prev" type="button" hide>Previous</button>
+          <button class="btn btn-next" type="button">Next</button>
+          <button type="submit" name="quote-form" value="Submit" class="btn btn-submit" hide>Submit</button>
+        </div>
+      </form>
+      <div class="flex-horizontal flex-center phone-contact">
+        <a href="tel:+1-402-669-2193" class="ff-primary no-text-decor py-1">
+          <img class="phone-icon" src="/assets/contact/smartphone.svg" alt="smartphone icon" />
+          (402) 669-2193
+        </a>
+      </div>
+    </div>
+    <footer class="bg-primary-dark text-primary-lt ff-primary fw-regular">
+      <nav>
+        <ul role="list" class="ff-primary fw-regular" aria-label="Footer">
+          <li><a href="/index.html" class="no-text-decor">Home</a></li>
+          <li><a href="/services.html" class="no-text-decor">Services</a></li>
+          <li><a href="/process.html" class="no-text-decor">Process</a></li>
+          <li><a href="/contact.html" class="active-page | no-text-decor">Contact</a></li>
+        </ul>
+      </nav>
+      <hr />
+      <ul role="list" class="footer-icons" aria-label="Social links">
+        <li>
+          <a href="https://g.page/greenwayyardandlandscape"><img src="/assets/logos/google.svg" alt="Google Business" /></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/greenway_grounds/?hl=en">
+            <img src="/assets/logos/instagram.svg" alt="Instagram" />
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com/greenwayyard/"><img src="/assets/logos/facebook.svg" alt="Facebook" /></a>
+        </li>
+        <li>
+          <a href="https://www.bbb.org/us/ne/gretna/profile/landscape-contractors/greenway-yard-and-landscape-0714-300173659">
+            <img src="/assets/logos/bbb.svg" alt="BBB" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/channel/UCS64y5Tj_SR4xl6ubzb-NdQ">
+            <img src="/assets/logos/youtube.svg" alt="YouTube" />
+          </a>
+        </li>
+      </ul>
+      <p>
+        Copyright &copy; Greenway Landscaping 2022 |
+        <a href="/sitemap.xml" class="no-text-decor">Sitemap</a>
+      </p>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/quote-form.js"></script>
+  </body>
+</html>
