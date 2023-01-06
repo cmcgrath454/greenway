@@ -453,6 +453,8 @@ header>nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* box-shadow: 0 -1px rgb(255 255 255 / 25%) inset; */
+
 }
 
 nav ul {
@@ -465,7 +467,7 @@ nav li:hover {
 }
 
 .logo {
-    max-width: 12rem;
+    width: 70%;
 }
 
 .mobile-nav-toggle {
@@ -625,7 +627,8 @@ footer>hr {
 }
 
 .hero nav {
-    background: none;
+    /* background: none; */
+    background:rgba(0, 0, 0, 0.411)
 }
 
 .hero>div {
