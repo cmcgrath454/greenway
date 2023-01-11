@@ -465,7 +465,7 @@ nav li:hover {
 }
 
 .logo {
-    width: 70%;
+    width: 60%;
 }
 
 .mobile-nav-toggle {
@@ -473,7 +473,7 @@ nav li:hover {
     background: none;
     border: 0;
     padding: 0.5em;
-    width: 3rem;
+    width: 20%;
     z-index: 2;
     flex-grow: 1;
 }
@@ -522,6 +522,10 @@ nav li:hover {
 @media (min-width: 900px) {
     header>nav {
         padding-inline: 3rem;
+    }
+
+    .logo {
+        width: 15rem;
     }
 
     .main-navigation {
