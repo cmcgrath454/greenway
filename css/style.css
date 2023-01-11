@@ -87,11 +87,11 @@ picture {
 
 @media (min-width: 900px) {
     :root {
-        --fs-primary-heading: 4rem;
-        --fs-accent-heading: 7rem;
+        --fs-primary-heading: 2.5rem;
+        --fs-accent-heading: 4.5rem;
         --fs-body: 1.125rem;
 
-        --lh-primary-heading: 1.125em;
+        --lh-primary-heading: 1.225em;
         --lh-accent-heading: 1em;
     }
 }
@@ -388,7 +388,7 @@ a.btn {
     border: 2px solid var(--clr-accent);
     border-radius: 3px;
     background: rgba(0, 0, 0, 0);
-    font-size: calc(var(--fs-body)*1.1);
+    font-size: var(--fs-body);
     font-family: var(--ff-primary);
     padding: 0.75em 1.125em;
     cursor: pointer;
@@ -453,8 +453,6 @@ header>nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* box-shadow: 0 -1px rgb(255 255 255 / 25%) inset; */
-
 }
 
 nav ul {
@@ -523,17 +521,15 @@ nav li:hover {
 @media (min-width: 900px) {
     header>nav {
         padding-inline: 3rem;
-        padding-block: 1.5rem;
     }
 
     .main-navigation {
         display: flex;
         position: relative;
         background: 0;
-        width: 75%;
+        width: 50%;
         padding: 0;
         font-size: var(--fs-body);
-        /* gap: 4em; */
     }
 
     .main-navigation>li>img,
@@ -617,8 +613,8 @@ footer>hr {
 /* Home Page */
 
 .hero {
-    min-height: 95vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url('/assets/homepage/pergola.jpg');
     background-size: cover;
     background-position: top;
@@ -627,8 +623,8 @@ footer>hr {
 }
 
 .hero nav {
-    /* background: none; */
-    background:rgba(0, 0, 0, 0.411)
+    background: none;
+    /* background:rgba(0, 0, 0, 0.411) */
 }
 
 .hero>div {
@@ -670,6 +666,7 @@ footer>hr {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url('/assets/homepage/tree-seedlings.jpg');
     background-size: cover;
+    min-height: 70vh;
 }
 
 .home-process div:nth-child(2) {
@@ -681,6 +678,7 @@ footer>hr {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
         url('/assets/homepage/markup.png');
     background-size: cover;
+    min-height: 80vh;
 }
 
 @media (min-width: 900px) {
@@ -829,33 +827,45 @@ select.options-group,
     height: 3em;
 }
 
-.phone-contact {
-    margin-block: 3rem 2rem;
-}
-
-.phone-contact img {
-    width: 3rem;
-    display: inline;
-    vertical-align: middle;
-}
-
 .contact-grid {
     margin-top: 3rem;
 }
+
+.contact-info {
+    margin-block: 3rem;
+    display: grid;
+    grid-template-columns: 2.5rem max-content;
+    align-items: start;
+    row-gap: 1rem;
+    text-align: left;
+}
+
+.contact-info img {
+    opacity: 45%;
+    width: 1.3rem;
+    /* display: inline; */
+}
+
+
 
 @media (min-width: 900px) {
     .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        align-items: center;
+        align-items: start;
         gap: 2rem;
         margin-block: 3rem;
     }
 
     .contact-grid form {
-        order: 2;
+        order: 0;
     }
+
+    .contact-info {
+        margin-top: 1rem;
+        margin-left: 20%;
+    }
+
 }
 
 /* Services Page */
