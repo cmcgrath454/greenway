@@ -344,6 +344,10 @@ picture {
     display: none;
 }
 
+.fixed-position {
+    overflow: hidden;
+}
+
 @media screen and (max-width: 900px) {
     .hide-on-mobile {
         display: none;
@@ -476,6 +480,8 @@ nav li:hover {
     width: 20%;
     z-index: 2;
     flex-grow: 1;
+    top: 0;
+    right: 0;
 }
 
 .active-page {
@@ -517,6 +523,10 @@ nav li:hover {
     background-color: var(--clr-primary-lt);
     opacity: 50%;
     height: 1px;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.1);
 }
 
 @media (min-width: 900px) {
@@ -671,7 +681,7 @@ footer>hr {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url('/assets/homepage/tree-seedlings.jpg');
     background-size: cover;
-    min-height: 70vh;
+    min-height: 60vh;
 }
 
 .home-process div:nth-child(2) {
@@ -683,7 +693,7 @@ footer>hr {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
         url('/assets/homepage/markup.png');
     background-size: cover;
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 @media (min-width: 900px) {
