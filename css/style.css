@@ -463,11 +463,6 @@ nav ul {
     overflow-y: hidden;
 }
 
-nav li:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-}
-
 .logo {
     width: 60%;
 }
@@ -557,6 +552,11 @@ nav li:hover {
         display: flex;
         gap: 1rem;
         justify-content: space-around;
+    }
+    
+    nav li:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
     }
 }
 
