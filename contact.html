@@ -60,39 +60,46 @@
       </p>
     </header>
     <div class="container contact-grid">
-      <form method="post" name="quote-form" class="box-3 quote-form ff-primary" action="quote-form.php">
+      <form method="post" name="quote-form" class="box-3 quote-form ff-primary" onsubmit="return validatePage(3)" action="quote-form.php">
         <fieldset class="active">
           <legend>
             <h2>Contact Info</h2>
           </legend>
           <label for="name" class="accessible-hidden">Name</label>
-          <input type="text" name="name" id="name" placeholder="Name" />
+          <input type="text" name="name" id="name" placeholder="Name" onchange="validateTextChange(this)"/>
+          <label for="name" class="form-error" hidden>Please enter a name</label>
           <label for="email" class="accessible-hidden">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="email" name="email" id="email" placeholder="Email" onchange="validateTextChange(this)" />
+          <label for="email" class="form-error" hidden>Please enter a valid email</label>
           <label for="phone" class="accessible-hidden">Phone</label>
-          <input type="tel" name="phone" id="phone" placeholder="Phone Number" />
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" onchange="validateTextChange(this)"/>
+          <label for="phone" class="form-error" hidden>Please enter a valid phone number</label>
         </fieldset>
         <fieldset>
           <legend>
             <h2>Project Location</h2>
           </legend>
           <label for="address" class="accessible-hidden">Street Address</label>
-          <input type="text" name="address" id="address" placeholder="Street Address" />
+          <input type="text" name="address" id="address" placeholder="Street Address" onchange="validateTextChange(this)" />
+          <label for="address" class="form-error" hidden>Please enter an address</label>
           <label for="city" class="accessible-hidden">City</label>
-          <input type="text" name="city" id="city" placeholder="City" />
+          <input type="text" name="city" id="city" placeholder="City" onchange="validateTextChange(this)" />
+          <label for="city" class="form-error" hidden>Please enter a city</label>
           <label for="state" class="accessible-hidden">State</label>
-          <input type="text" name="state" id="state" placeholder="State" />
-          <label for="state" class="accessible-hidden">State</label>
+          <input type="text" name="state" id="state" placeholder="State" onchange="validateTextChange(this)" />
+          <label for="state" class="form-error" hidden>Please enter a state</label>
           <label for="zip" class="accessible-hidden">Zip Code</label>
-          <input type="number" name="zip" id="zip" placeholder="Zip Code" />
+          <input type="number" name="zip" id="zip" placeholder="Zip Code" onchange="validateTextChange(this)" />
+          <label for="zip" class="form-error" hidden>Please enter a valid zip code</label>
           <fieldset class="options-group">
             <h3>Is this on new construction?</h3>
-            <label for="newhome-true" class="option-list">
-              <input type="radio" name="isnewhome" value="true" id="newhome-true" />
+            <label for="isnewhome" class="form-error" hidden>Please select Yes or No</label>
+            <label for="newhome-true" class="option-list-item" >
+              <input type="radio" name="isnewhome" value="true" id="newhome-true" class="form-error" onchange="validateOptionChange(this)"/>
               Yes
             </label>
-            <label for="newhome-false" class="option-list">
-              <input type="radio" name="isnewhome" value="false" id="newhome-false" />
+            <label for="newhome-false" class="option-list-item" >
+              <input type="radio" name="isnewhome" value="false" id="newhome-false" class="form-error" onchange="validateOptionChange(this)"/>
               No
             </label>
           </fieldset>
@@ -107,39 +114,39 @@
             <legend>
               <h3>Interests</h3>
             </legend>
-            <label for="concrete">
+            <label for="concrete" class="option-list-item">
               <input type="checkbox" name="type[]" value="concrete" id="concrete" />
               Concrete
             </label>
-            <label for="paver-stone-patio">
+            <label for="paver-stone-patio" class="option-list-item">
               <input type="checkbox" name="type[]" value="paver-stone-patio" id="paver-stone-patio" />
               Paver/Stone Patio
             </label>
-            <label for="retaining-wall">
+            <label for="retaining-wall" class="option-list-item">
               <input type="checkbox" name="type[]" value="retaining-wall" id="retaining-wall" />
               Retaining Wall
             </label>
-            <label for="outdoor-kitchen/bar">
+            <label for="outdoor-kitchen/bar" class="option-list-item">
               <input type="checkbox" name="type[]" value="outdoor-kitchen/bar" id="outdoor-kitchen/bar" />
               Outdoor Kitchen/Bar
             </label>
-            <label for="pool-house-outdoor-room">
+            <label for="pool-house-outdoor-room" class="option-list-item">
               <input type="checkbox" name="type[]" value="pool-house-outdoor-room" id="pool-house-outdoor-room" />
               Pool House/Outdoor Room
             </label>
-            <label for="water-feature">
+            <label for="water-feature" class="option-list-item">
               <input type="checkbox" name="type[]" value="water-feature" id="water-feature" />
               Water Feature
             </label>
-            <label for="fireplace-firepit">
+            <label for="fireplace-firepit" class="option-list-item">
               <input type="checkbox" name="type[]" value="fireplace-firepit" id="fireplace-firepit" />
               Fireplace/Firepit
             </label>
-            <label for="landscape-lighting">
+            <label for="landscape-lighting" class="option-list-item">
               <input type="checkbox" name="type[]" value="landscape lighting" id="landscape-lighting" />
               Landscape Lighting
             </label>
-            <label for="deck">
+            <label for="deck" class="option-list-item">
               <input type="checkbox" name="type[]" value="deck" id="deck" />
               Deck
             </label>
@@ -148,40 +155,41 @@
             <legend>
               <h3>Landscape Style</h3>
             </legend>
-            <label for="modern">
+            <label for="modern" class="option-list-item">
               <input type="checkbox" name="style[]" value="modern" id="modern" />
               Modern
             </label>
-            <label for="country">
+            <label for="country" class="option-list-item">
               <input type="checkbox" name="style[]" value="country" id="country" />
               Country
             </label>
-            <label for="traditional">
+            <label for="traditional" class="option-list-item">
               <input type="checkbox" name="style[]" value="traditional" id="traditional" />
               Traditional
             </label>
-            <label for="elegant">
+            <label for="elegant" class="option-list-item">
               <input type="checkbox" name="style[]" value="elegant" id="elegant" />
               Elegant
             </label>
-            <label for="natural">
+            <label for="natural" class="option-list-item">
               <input type="checkbox" name="style[]" value="natural" id="natural" />
               Natural
             </label>
-            <label for="rustic">
+            <label for="rustic" class="option-list-item">
               <input type="checkbox" name="style[]" value="rustic" id="rustic" />
               Rustic
             </label>
           </fieldset>
           <label for="description" class="accessible-hidden">Project Description</label>
-          <textarea name="description" id="description" placeholder="Project Description"></textarea>
+          <textarea name="description" id="description" placeholder="Project Description" onchange="validateTextChange(this)"></textarea>
+          <label for="description" class="form-error" hidden>Please enter a project description</label>
         </fieldset>
         <fieldset>
           <legend>
             <h2>Additional Details</h2>
           </legend>
           <label for="budget" class="accessible-hidden">Budget</label>
-          <select class="options-group" name="budget" id="budget">
+          <select class="options-group" name="budget" id="budget" onchange="validateOptionChange(this)" required>
             <option disabled selected hidden>Budget</option>
             <option value="5-10">$5,000 - $10,000</option>
             <option value="10-25">$10,000 - $25,000</option>
@@ -189,10 +197,12 @@
             <option value="50-100">$50,000 - $100,000</option>
             <option value="100+">$100,000+</option>
           </select>
+          <label for="budget" class="form-error" hidden>Please select a budget</label>
           <label for="date" class="accessible-hidden">Desired Start Date</label>
-          <input type="text" name="date" id="date" placeholder="Desired Start Date" />
+          <input type="text" name="date" id="date" placeholder="Desired Start Date" onchange="validateTextChange(this)"/>
+          <label for="date" class="form-error" hidden>Please enter your desired start date</label>
           <label for="comments" class="accessible-hidden">Additional Comments</label>
-          <textarea name="comments" id="comments" placeholder="Additional Comments"></textarea>
+          <textarea name="comments" id="comments" placeholder="Additional Comments" ></textarea>
         </fieldset>
         <div class="btn-set mt-3">
           <button class="btn btn-prev text-primary-dark" type="button" hide>Previous</button>

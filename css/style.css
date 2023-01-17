@@ -767,16 +767,16 @@ fieldset>fieldset {
     text-align: left;
 }
 
-.quote-form input,
-.quote-form textarea {
+input,
+textarea {
     margin-block: 0.5em;
 }
 
-.quote-form input[type="text"],
-.quote-form input[type="number"],
-.quote-form input[type="email"],
-.quote-form input[type="tel"],
-.quote-form input[type="date"] {
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
     width: 100%;
     margin-inline: auto;
     border: 0;
@@ -810,16 +810,13 @@ fieldset>fieldset {
     width: 100%;
 }
 
-.quote-form h3 {
-    margin-block: 0.5rem;
-}
 
-.quote-form .options-group>label {
+label.option-list-item {
     display: block;
     width: 100%;
 }
 
-.quote-form .options-group input {
+.options-group input {
     display: inline-block;
     transform: scale(1.5);
     margin: 0.5rem;
@@ -840,6 +837,36 @@ select.options-group,
     margin-bottom: 1rem;
     border: 1px solid var(--clr-primary-dark);
     height: 3em;
+}
+
+label.form-error {
+    color: red;
+    font-size: 0.75rem;
+}
+
+input.form-error {
+    border-bottom: solid 1px red;
+    margin-bottom: 0;
+}
+
+input.form-error#date {
+    border: solid 1px red;
+    margin-bottom: 0;
+}
+
+input.form-error::placeholder {
+    color: red;
+}
+
+select.form-error {
+    margin-bottom: 0;
+    border: 1px solid red;
+    color: red;
+}
+
+textarea.form-error {
+    border: 1px solid red;
+    margin-bottom: 0;
 }
 
 .contact-grid {

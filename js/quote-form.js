@@ -42,7 +42,7 @@ prevBtn.addEventListener("click", () => {
   prevFormPage.classList.add("active");
 });
 
-const newHomeRadios = document.querySelectorAll('input[name="isnewhome"');
+const newHomeRadios = document.querySelectorAll("input[name='isnewhome'");
 
 newHomeRadios.forEach((radioBtn) => {
   radioBtn.addEventListener("click", () => {
@@ -50,23 +50,101 @@ newHomeRadios.forEach((radioBtn) => {
     const newHomeYes = document.querySelector("#newhome-true");
 
     builderElements.forEach((elem) => {
-      newHomeYes.checked
-        ? elem.removeAttribute("hide")
-        : elem.setAttribute("hide", null);
+      newHomeYes.checked ? elem.removeAttribute("hide") : elem.setAttribute("hide", null);
     });
   });
 });
 
 function validatePage(pageNo) {
   valid = true;
-  page = formPages[pageNo];
-  for (const node of page.childNodes) {
-    if (node.nodeName == "INPUT" && node.value.length == 0) {
-      node.classList.add("red");
-      valid = false;
-    }
+  switch (pageNo) {
+    case 0:
+      const name = document.getElementById("name");
+      if (name.value.length < 1) {
+        showError(name);
+        valid = false;
+      }
+      const email = document.getElementById("email");
+      if (!email.value.includes("@") || !email.value.includes(".")) {
+        showError(email);
+        valid = false;
+      }
+      const phone = document.getElementById("phone");
+      if (phone.value.length < 7) {
+        showError(phone);
+        valid = false;
+      }
+      break;
+    case 1:
+      addressTextLines = [
+        document.getElementById("address"),
+        document.getElementById("city"),
+        document.getElementById("state"),
+      ];
+      addressTextLines.forEach((element) => {
+        if (element.value.length < 1) {
+          showError(element);
+          valid = false;
+        }
+      });
+      const zip = document.getElementById("zip");
+      if (zip.value.length < 5) {
+        showError(zip);
+        valid = false;
+      }
+      const newHomeRadios = document.getElementsByName("isnewhome");
+      if (!(newHomeRadios[0].checked || newHomeRadios[1].checked)) {
+        showError(newHomeRadios[0]);
+        valid = false;
+      }
+      break;
+    case 2:
+      const desc = document.getElementById("description");
+      if (desc.value.length < 1) {
+        showError(desc);
+        valid = false;
+      }
+      break;
+    case 3:
+      const budget = document.getElementById("budget");
+      if (budget.selectedIndex == 0) {
+        showError(budget);
+        valid = false;
+      }
+      const date = document.getElementById("date");
+      if (date.value.length < 1) {
+        showError(date);
+        valid = false;
+      }
+    default:
+      console.error("contact form page number out of bounds");
+      break;
   }
   return valid;
 }
 
+function isBlank(string) {}
 
+function showError(element) {
+  element.classList.add("form-error");
+  let label = document.querySelector(`label[for="${element.name}"].form-error`);
+  label.removeAttribute("hidden", "");
+  // label.toggleAttribute("hidden
+}
+
+function validateTextChange(e) {
+  let errorLabel = e.nextElementSibling;
+  if (e.value.length < 1) {
+    e.classList.add("form-error");
+    errorLabel.removeAttribute("hidden");
+  } else {
+    e.classList.remove("form-error");
+    errorLabel.setAttribute("hidden", "");
+  }
+}
+
+function validateOptionChange(e) {
+  let label = document.querySelector(`label[for="${e.name}"].form-error`);
+  e.classList.remove("form-error");
+  label.setAttribute("hidden", "");
+}
