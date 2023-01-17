@@ -123,13 +123,10 @@ function validatePage(pageNo) {
   return valid;
 }
 
-function isBlank(string) {}
-
 function showError(element) {
   element.classList.add("form-error");
   let label = document.querySelector(`label[for="${element.name}"].form-error`);
   label.removeAttribute("hidden", "");
-  // label.toggleAttribute("hidden
 }
 
 function validateTextChange(e) {
