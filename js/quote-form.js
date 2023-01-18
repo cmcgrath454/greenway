@@ -147,6 +147,20 @@ function validateOptionChange(e) {
 }
 
 function submitForm() {
+  if(typeof grecaptcha === 'undefined') {
+    grecaptcha = {};
+  }
+
+  grecaptcha.ready = function(cb){
+    if(typeof grecaptcha === 'undefined') {
+      const c = '___grecaptcha_cfg';
+      window[c] = window[c] || {};
+      (window[c]['fns'] = window[c]['fns']||[]).push(cb);
+    } else {
+      cb();
+    }
+  }
+
   if (validatePage(3)) {
     grecaptcha.ready(function () {
       grecaptcha.execute("6LcMg68gAAAAAJ7n3i1ep8By71h-jIlWs1ba-N6q").then(function (token) {
