@@ -82,7 +82,7 @@ if (true) {
             //     ';
         }
     } else {
-        echo ($response_data);
+        echo(implode($response_data));
 
         // echo
         //     '
