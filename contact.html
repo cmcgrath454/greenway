@@ -60,7 +60,7 @@
       </p>
     </header>
     <div class="container contact-grid">
-      <form method="post" name="quote-form" id="quote-form" class="box-3 quote-form ff-primary" onsubmit="submitForm()" action="/php/quote-form.php">
+      <form method="post" name="quote-form" id="quote-form" class="box-3 quote-form ff-primary" action="/php/quote-form.php">
         <fieldset class="active">
           <legend>
             <h2>Contact Info</h2>
@@ -208,7 +208,7 @@
           <input type="hidden" name="token-response" id="token-response" value="">
           <button class="btn btn-prev text-primary-dark" type="button" hide>Previous</button>
           <button class="btn btn-next text-primary-dark" type="button">Next</button>
-          <button type="submit" name="quote-form" value="Submit" class="btn btn-submit text-primary-dark" hide>Submit</button>
+          <button type="submit" name="quote-form" value="Submit" onclick="return submitForm()" class="btn btn-submit text-primary-dark" hide>Submit</button>
         </div>
       </form>
       <div class="flex-horizontal flex-center contact-info">
