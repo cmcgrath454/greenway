@@ -145,3 +145,16 @@ function validateOptionChange(e) {
   e.classList.remove("form-error");
   label.setAttribute("hidden", "");
 }
+
+function submitForm() {
+  if (validatePage(3)) {
+    grecaptcha.ready(function () {
+      grecaptcha.execute("6LcMg68gAAAAAJ7n3i1ep8By71h-jIlWs1ba-N6q").then(function (token) {
+        document.getElementById("token-response").value = token;
+        if (validateForm()) {
+          document.getElementById("quote-form").submit();
+        }
+      });
+    });
+  }
+}

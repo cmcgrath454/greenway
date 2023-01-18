@@ -60,7 +60,7 @@
       </p>
     </header>
     <div class="container contact-grid">
-      <form method="post" name="quote-form" class="box-3 quote-form ff-primary" onsubmit="return validatePage(3)" action="quote-form.php">
+      <form method="post" name="quote-form" id="quote-form" class="box-3 quote-form ff-primary" onsubmit="return validatePage(3)" action="/php/quote-form.php">
         <fieldset class="active">
           <legend>
             <h2>Contact Info</h2>
@@ -205,6 +205,7 @@
           <textarea name="comments" id="comments" placeholder="Additional Comments" ></textarea>
         </fieldset>
         <div class="btn-set mt-3">
+          <input type="hidden" name="token-response" id="token-response" value="">
           <button class="btn btn-prev text-primary-dark" type="button" hide>Previous</button>
           <button class="btn btn-next text-primary-dark" type="button">Next</button>
           <button type="submit" name="quote-form" value="Submit" class="btn btn-submit text-primary-dark" hide>Submit</button>
@@ -268,5 +269,6 @@
 
     <script src="js/menu.js"></script>
     <script src="js/quote-form.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcMg68gAAAAAJ7n3i1ep8By71h-jIlWs1ba-N6q"></script>
   </body>
 </html>
