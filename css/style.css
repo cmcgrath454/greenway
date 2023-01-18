@@ -1151,26 +1151,6 @@ ol.processes>li {
 
 /* Animations */
 
-@keyframes slide-in {
-    to {
-        left: 0;
-    }
-}
-
-.slide-on-scroll-left {
-    position: relative;
-    left: -100vw;
-}
-
-.slide-on-scroll-right {
-    position: relative;
-    left: 100vw;
-}
-
-.slide-on-scroll-activate {
-    animation: slide-in 1s ease-out both;
-}
-
 .photo-lineup figure {
     animation-delay: calc(var(--order)*0.2s);
 }
@@ -1186,7 +1166,7 @@ ol.processes>li {
 }
 
 .fade-on-scroll-activate {
-    animation: fade-in 1.5s ease-in both;
+    animation: fade-in 1s ease-in both;
 }
 
 @media (min-width: 900px) {
@@ -1206,7 +1186,7 @@ ol.processes>li {
     }
 
     .photo-lineup>figure {
-        animation-delay: calc(var(--order)*0.15s);
+        animation-delay: calc(var(--order)*0.1s);
     }
 
     .services-wrapper li {
