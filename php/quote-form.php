@@ -80,6 +80,7 @@ if (true) {
         }
     } else {
         echo
+            error_log(print_r($response_data));
             '
                     <script>
                         window.onload = function() {
