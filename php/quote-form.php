@@ -79,8 +79,8 @@ if (true) {
                 ';
         }
     } else {
+        error_log(print_r($response_data));
         echo
-            error_log(print_r($response_data));
             '
                     <script>
                         window.onload = function() {
