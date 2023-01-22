@@ -146,28 +146,12 @@ function validateOptionChange(e) {
   label.setAttribute("hidden", "");
 }
 
-function submitForm() {
-  if(typeof grecaptcha === 'undefined') {
-    grecaptcha = {};
-  }
-
-  grecaptcha.ready = function(cb){
-    if(typeof grecaptcha === 'undefined') {
-      const c = '___grecaptcha_cfg';
-      window[c] = window[c] || {};
-      (window[c]['fns'] = window[c]['fns']||[]).push(cb);
-    } else {
-      cb();
-    }
-  }
-
+function submitForm(e) {
   if (validatePage(3)) {
     grecaptcha.ready(function () {
-      grecaptcha.execute("6LcMg68gAAAAAJ7n3i1ep8By71h-jIlWs1ba-N6q").then(function (token) {
-        document.getElementById("token-response").value = token;
-        if (validateForm()) {
+      grecaptcha.execute("6Lf9LhskAAAAAEZQEzrF7Kv_9mAiyFrVV-m-Vd7Z").then(function (token) {
+          document.getElementById("token-response").value = token;
           document.getElementById("quote-form").submit();
-        }
       });
     });
   }

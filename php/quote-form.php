@@ -25,7 +25,7 @@ if (true) {
 
     $token = $_POST['token-response'];
     $ipaddress = $_SERVER['REMOTE_ADDR'];
-    $secret = "6LcMg68gAAAAAMPD2kgOfYMAU9DWZZ4l6eX1L0bK";
+    $secret = "6Lf9LhskAAAAANiDOD--1vK1nxAJ7d0f2gsMElNb";
 
     $data = array('secret' => $secret, 'response' => $token, 'remoteip' => $ipaddress);
     $options = array(
@@ -49,50 +49,45 @@ if (true) {
     }
 
     if ($valid) {
-        $to = 'greenway_grounds@yahoo.com';
-        $server_email = 'paul@greenwayyard.com';
+        $to = 'paul@greenwayyard.com';
+        $server_email = 'quotes@greenwayyard.com';
         $subject = 'Website Quote Request:';
         $subject .= $form_data['name'];
         $addl_headers = ['From' => $server_email, 'Content-type' => 'text/html; charset=iso-8859-1'];
         $body = build_email_body($form_data);
 
-        // if valid send email
-        echo ($body);
-
-        if (false) { //mail('cmcgrath454@gmail.com', $subject, $body, $addl_headers)
-            echo ($body);
-            // echo
-            // '
-            //         <script>
-            //             window.onload = function() {
-            //                 alert("Thank you for contacting us. We will be in touch soon!");
-            //                 location.href = "index";
-            //             }
-            //         </script>
-            //     ';
+        if (mail($to, $subject, $body, $addl_headers)) {
+            echo
+            '
+                    <script>
+                        window.onload = function() {
+                            alert("Thank you for contacting us. We will be in touch soon!");
+                            location.href = "index";
+                        }
+                    </script>
+                ';
         } else {
-            // echo
-            //     '
-            //         <script>
-            //             window.onload = function() {
-            //                 alert("There was an error processing your form. Please try again");
-            //                 location.href = "contact";
-            //             }
-            //         </script>
-            //     ';
+            error_log(print_r(error_get_last(), true));
+            echo
+                '
+                    <script>
+                        window.onload = function() {
+                            alert("There was an error processing your form. Please try again");
+                            location.href = "contact";
+                        }
+                    </script>
+                ';
         }
     } else {
-        print_r($response_data);
-
-        // echo
-        //     '
-        //             <script>
-        //                 window.onload = function() {
-        //                     alert("Our system has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at greenway_grounds@yahoo.com.");
-        //                     location.href = "contact";
-        //                 }
-        //             </script>
-        //         ';
+        echo
+            '
+                    <script>
+                        window.onload = function() {
+                            alert("Our system has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at greenway_grounds@yahoo.com.");
+                            location.href = "contact";
+                        }
+                    </script>
+                ';
     }
 }
 
