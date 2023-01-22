@@ -149,7 +149,7 @@ function validateOptionChange(e) {
 function submitForm(e) {
   if (validatePage(3)) {
     grecaptcha.ready(function () {
-      grecaptcha.execute("6Lf9LhskAAAAAEZQEzrF7Kv_9mAiyFrVV-m-Vd7Z").then(function (token) {
+      grecaptcha.execute("6LfuSRskAAAAAINeGJ_yySvKM40NgKpwRVjwX90o").then(function (token) {
           document.getElementById("token-response").value = token;
           document.getElementById("quote-form").submit();
       });

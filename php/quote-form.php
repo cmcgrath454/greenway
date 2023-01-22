@@ -25,7 +25,7 @@ if (true) {
 
     $token = $_POST['token-response'];
     $ipaddress = $_SERVER['REMOTE_ADDR'];
-    $secret = "6Lf9LhskAAAAANiDOD--1vK1nxAJ7d0f2gsMElNb";
+    $secret = "6LfuSRskAAAAABCcbfA5yT30wnZy_UHsz8UC-FDk";
 
     $data = array('secret' => $secret, 'response' => $token, 'remoteip' => $ipaddress);
     $options = array(
