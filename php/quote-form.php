@@ -79,7 +79,7 @@ if (true) {
                 ';
         }
     } else {
-        error_log(print_r($response_data));
+        error_log(print_r($response_data), true);
         echo
             '
                     <script>
