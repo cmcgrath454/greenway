@@ -62,7 +62,7 @@ if (true) {
                     <script>
                         window.onload = function() {
                             alert("Thank you for contacting us. We will be in touch soon!");
-                            location.href = "index";
+                            location.href = "/index";
                         }
                     </script>
                 ';
@@ -73,7 +73,7 @@ if (true) {
                     <script>
                         window.onload = function() {
                             alert("There was an error processing your form. Please try again");
-                            location.href = "contact";
+                            location.href = "/contact";
                         }
                     </script>
                 ';
@@ -84,7 +84,7 @@ if (true) {
                     <script>
                         window.onload = function() {
                             alert("Our system has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at greenway_grounds@yahoo.com.");
-                            location.href = "contact";
+                            location.href = "/contact";
                         }
                     </script>
                 ';
