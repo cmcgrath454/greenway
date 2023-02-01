@@ -476,6 +476,7 @@ nav ul {
 
 .logo {
     width: 60%;
+    height: auto;
 }
 
 .mobile-nav-toggle {
@@ -592,6 +593,10 @@ footer>nav a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.footer-icons img {
+    height: auto;
 }
 
 .footer-icons li:hover {
