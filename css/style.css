@@ -901,6 +901,7 @@ textarea.form-error {
 .contact-info img {
     opacity: 45%;
     width: 1.3rem;
+    height: auto;
     /* display: inline; */
 }
 

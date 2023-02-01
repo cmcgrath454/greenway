@@ -34,9 +34,12 @@
   <body>
     <header>
       <nav aria-label="Main">
-        <a href="/"><img src="/assets/logos/main_logo_dark.svg" alt="" hide><img src="/assets/logos/main_logo_light.svg" alt="Greenway Yard and Landscaping home" class="logo" /></a>
+        <a href="/">
+          <img src="/assets/logos/main_logo_dark.svg" alt="" hide />
+          <img src="/assets/logos/main_logo_light.svg" width="732" height="256" alt="Greenway Yard and Landscaping home" class="logo" />
+        </a>
         <ul class="main-navigation | ff-primary fw-regular text-primary-lt w-0" role="list" id="main-navigation">
-          <li><img src="/assets/nav/greenway-g.svg" alt="Greenway Yard and Landscape logo" aria-hidden="true" /></li>
+          <li><img src="/assets/nav/tree-icon.svg" alt="Greenway Yard and Landscape logo" aria-hidden="true" /></li>
           <li><a href="/" class="no-text-decor py-1">Home</a></li>
           <hr />
           <li><a href="/services" class="no-text-decor py-1">Services</a></li>
@@ -46,8 +49,8 @@
           <li><a href="/contact" class="active-page | no-text-decor py-1">Contact</a></li>
         </ul>
         <button class="mobile-nav-toggle" aria-controls="main-navigation" aria-expanded="false">
-          <img src="/assets/nav/menu-open.svg" alt="toggle menu open" aria-hidden="true" />
-          <img src="/assets/nav/menu-close.svg" alt="toggle menu close" aria-hidden="true" hide />
+          <img src="/assets/nav/menu-open.svg" width="100" height="100" alt="toggle menu open" aria-hidden="true" />
+          <img src="/assets/nav/menu-close.svg" width="100" height="100" alt="toggle menu close" aria-hidden="true" hide />
           <span class="accessible-hidden">Menu</span>
         </button>
       </nav>
@@ -63,13 +66,13 @@
             <h2>Contact Info</h2>
           </legend>
           <label for="name" class="accessible-hidden">Name</label>
-          <input type="text" name="name" id="name" placeholder="Name" onchange="validateTextChange(this)"/>
+          <input type="text" name="name" id="name" placeholder="Name" onchange="validateTextChange(this)" />
           <label for="name" class="form-error" hidden>Please enter a name</label>
           <label for="email" class="accessible-hidden">Email</label>
           <input type="email" name="email" id="email" placeholder="Email" onchange="validateTextChange(this)" />
           <label for="email" class="form-error" hidden>Please enter a valid email</label>
           <label for="phone" class="accessible-hidden">Phone</label>
-          <input type="tel" name="phone" id="phone" placeholder="Phone Number" onchange="validateTextChange(this)"/>
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" onchange="validateTextChange(this)" />
           <label for="phone" class="form-error" hidden>Please enter a valid phone number</label>
         </fieldset>
         <fieldset>
@@ -91,12 +94,24 @@
           <fieldset class="options-group">
             <h3>Is this on new construction?</h3>
             <label for="isnewhome" class="form-error" hidden>Please select Yes or No</label>
-            <label for="newhome-true" class="option-list-item" >
-              <input type="radio" name="isnewhome" value="true" id="newhome-true" class="form-error" onchange="validateOptionChange(this)"/>
+            <label for="newhome-true" class="option-list-item">
+              <input
+                type="radio"
+                name="isnewhome"
+                value="true"
+                id="newhome-true"
+                class="form-error"
+                onchange="validateOptionChange(this)" />
               Yes
             </label>
-            <label for="newhome-false" class="option-list-item" >
-              <input type="radio" name="isnewhome" value="false" id="newhome-false" class="form-error" onchange="validateOptionChange(this)"/>
+            <label for="newhome-false" class="option-list-item">
+              <input
+                type="radio"
+                name="isnewhome"
+                value="false"
+                id="newhome-false"
+                class="form-error"
+                onchange="validateOptionChange(this)" />
               No
             </label>
           </fieldset>
@@ -178,7 +193,11 @@
             </label>
           </fieldset>
           <label for="description" class="accessible-hidden">Project Description</label>
-          <textarea name="description" id="description" placeholder="Project Description" onchange="validateTextChange(this)"></textarea>
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Project Description"
+            onchange="validateTextChange(this)"></textarea>
           <label for="description" class="form-error" hidden>Please enter a project description</label>
         </fieldset>
         <fieldset>
@@ -196,26 +215,38 @@
           </select>
           <label for="budget" class="form-error" hidden>Please select a budget</label>
           <label for="date" class="accessible-hidden">Desired Start Date</label>
-          <input type="text" name="date" id="date" placeholder="Desired Start Date" onchange="validateTextChange(this)"/>
+          <input type="text" name="date" id="date" placeholder="Desired Start Date" onchange="validateTextChange(this)" />
           <label for="date" class="form-error" hidden>Please enter your desired start date</label>
           <label for="comments" class="accessible-hidden">Additional Comments</label>
-          <textarea name="comments" id="comments" placeholder="Additional Comments" ></textarea>
+          <textarea name="comments" id="comments" placeholder="Additional Comments"></textarea>
         </fieldset>
         <div class="btn-set mt-3">
-          <input type="hidden" name="token-response" id="token-response" value="">
+          <input type="hidden" name="token-response" id="token-response" value="" />
           <button class="btn btn-prev text-primary-dark" type="button" hide>Previous</button>
           <button class="btn btn-next text-primary-dark" type="button">Next</button>
-          <button type="submit" name="quote-form" value="Submit" onclick="submitForm()" class="btn btn-submit text-primary-dark" hide>Submit</button>
+          <button
+            type="submit"
+            name="quote-form"
+            value="Submit"
+            onclick="submitForm()"
+            class="btn btn-submit text-primary-dark"
+            hide>
+            Submit
+          </button>
         </div>
       </form>
       <div class="flex-horizontal flex-center contact-info">
-        <img src="assets/contact/phone.png" alt="phone icon">
-        <a href="tel:+1-402-669-2193" class="no-text-decor">(402) 669-2193</a> 
-        <img src="assets/contact/clock.png" alt="clock icon">
-        <p>Monday - Friday <br> 8am - 7pm</p>
-        <img src="assets/contact/email.png" alt="email icon">
+        <img src="assets/contact/phone.png" width="100" height="100" alt="phone icon" />
+        <a href="tel:+1-402-669-2193" class="no-text-decor">(402) 669-2193</a>
+        <img src="assets/contact/clock.png" width="100" height="100" alt="clock icon" />
+        <p>
+          Monday - Friday
+          <br />
+          8am - 7pm
+        </p>
+        <img src="assets/contact/email.png" width="100" height="100" alt="email icon" />
         <p><a href="mailto:greenway_grounds@yahoo.com" class="no-text-decor">greenway_grounds@yahoo.com</a></p>
-        <img src="assets/contact/map.png" alt="location pin icon">
+        <img src="assets/contact/map.png" width="100" height="100" alt="location pin icon" />
         <ul role="list">
           <li>Omaha, NE</li>
           <li>Gretna, NE</li>
@@ -239,35 +270,38 @@
       <hr />
       <ul role="list" class="footer-icons" aria-label="Social links">
         <li>
-          <a href="https://g.page/greenwayyardandlandscape"><img src="/assets/logos/google.svg" alt="Google Business" /></a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/greenway_grounds/?hl=en">
-            <img src="/assets/logos/instagram.svg" alt="Instagram" />
+          <a href="https://g.page/greenwayyardandlandscape">
+            <img src="/assets/logos/google.svg" width="100" height="100" alt="Google Business" />
           </a>
         </li>
         <li>
-          <a href="https://facebook.com/greenwayyard/"><img src="/assets/logos/facebook.svg" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/greenway_grounds/?hl=en">
+            <img src="/assets/logos/instagram.svg" width="100" height="100" alt="Instagram" />
+          </a>
         </li>
         <li>
-          <a href="https://www.bbb.org/us/ne/gretna/profile/landscape-contractors/greenway-yard-and-landscape-0714-300173659">
-            <img src="/assets/logos/bbb.svg" alt="BBB" />
+          <a href="https://facebook.com/greenwayyard/">
+            <img src="/assets/logos/facebook.svg" width="100" height="100" alt="Facebook" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.bbb.org/us/ne/gretna/profile/landscape-contractors/greenway-yard-and-landscape-0714-300173659">
+            <img src="/assets/logos/bbb.svg" width="100" height="100" alt="BBB" />
           </a>
         </li>
         <li>
           <a href="https://www.youtube.com/channel/UCS64y5Tj_SR4xl6ubzb-NdQ">
-            <img src="/assets/logos/youtube.svg" alt="YouTube" />
+            <img src="/assets/logos/youtube.svg" width="100" height="100" alt="YouTube" />
           </a>
         </li>
       </ul>
-      <p>
-        Copyright &copy; Greenway Landscaping 2022
-      </p>
+      <p>Copyright &copy; Greenway Landscaping 2022</p>
     </footer>
 
     <script src="js/menu.js"></script>
     <script src="js/quote-form.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LfuSRskAAAAAINeGJ_yySvKM40NgKpwRVjwX90o"></script>
+    <script defer src="https://www.google.com/recaptcha/api.js?render=6LfuSRskAAAAAINeGJ_yySvKM40NgKpwRVjwX90o"></script>
   
   <noscript><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&amp;family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"></noscript>
 
