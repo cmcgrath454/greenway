@@ -1161,6 +1161,10 @@ ol.processes>li {
     }
 }
 
+h1.fade-on-scroll {
+    opacity: 0.1;
+}
+
 .fade-on-scroll {
     opacity: 0;
 }
