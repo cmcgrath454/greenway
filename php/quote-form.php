@@ -1,99 +1,95 @@
 <?php
-if (true) {
-    $form_data = array(
-        'name' => $_POST['name'],
-        'phone' => $_POST['phone'],
-        'email' => $_POST['email'],
-        'address' => $_POST['address'],
-        'city' => $_POST['city'],
-        'state' => $_POST['state'],
-        'zip' => $_POST['zip'],
-        'type' => '',
-        'style' => '',
-        'builder' => $_POST['builder'],
-        'desc' => $_POST['description'],
-        'budget' => $_POST['budget'],
-        'start_date' => $_POST['date'],
-        'comments' => $_POST['comments']
-    );
 
-    if (isset($_POST['is_new']))
-        $form_data['is_new'] = $_POST['is_new'];
-    else
-        $form_data['is_new'] = false;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-    if (isset($_POST['type']))
-        $form_data['type'] = get_checkbox_as_string($_POST['type']);
-    if (isset($_POST['style']))
-        $form_data['style'] = get_checkbox_as_string($_POST['style']);
 
-    $token = $_POST['token-response'];
-    $ipaddress = $_SERVER['REMOTE_ADDR'];
-    $secret = "6LfuSRskAAAAABCcbfA5yT30wnZy_UHsz8UC-FDk";
+require '../vendor/autoload.php';
 
-    $data = array('secret' => $secret, 'response' => $token, 'remoteip' => $ipaddress);
-    $options = array(
-        'http' => array(
-            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
-            'content' => http_build_query($data),
-        ),
-    );
+$form_data = array(
+    'name' => $_POST['name'],
+    'phone' => $_POST['phone'],
+    'email' => $_POST['email'],
+    'address' => $_POST['address'],
+    'city' => $_POST['city'],
+    'state' => $_POST['state'],
+    'zip' => $_POST['zip'],
+    'type' => '',
+    'style' => '',
+    'builder' => $_POST['builder'],
+    'desc' => $_POST['description'],
+    'budget' => $_POST['budget'],
+    'start_date' => $_POST['date'],
+    'comments' => $_POST['comments']
+);
 
-    $context = stream_context_create($options);
-    $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
-    $response_data = json_decode($verify_response, true);
+if (isset($_POST['is_new']))
+    $form_data['is_new'] = $_POST['is_new'];
+else
+    $form_data['is_new'] = false;
 
+if (isset($_POST['type']))
+    $form_data['type'] = get_checkbox_as_string($_POST['type']);
+if (isset($_POST['style']))
+    $form_data['style'] = get_checkbox_as_string($_POST['style']);
+
+$token = $_POST['token-response'];
+$ipaddress = $_SERVER['REMOTE_ADDR'];
+$secret = "6LfuSRskAAAAABCcbfA5yT30wnZy_UHsz8UC-FDk";
+
+$data = array('secret' => $secret, 'response' => $token, 'remoteip' => $ipaddress);
+$options = array(
+    'http' => array(
+        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method' => 'POST',
+        'content' => http_build_query($data),
+    ),
+);
+
+$context = stream_context_create($options);
+$verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+$response_data = json_decode($verify_response, true);
+
+$valid = true;
+
+if ($response_data['success'] && $response_data > 0.4) {
     $valid = true;
-
-    if ($response_data['success'] && $response_data > 0.4) {
-        $valid = true;
-    } else {
-        $valid = false;
-    }
-
-    if ($valid) {
-        $to = 'info@greenwayyard.com';
-        $server_email = 'quotes@greenwayyard.com';
-        $subject = 'Website Quote Request:';
-        $subject .= $form_data['name'];
-        $addl_headers = ['From' => $server_email, 'Content-type' => 'text/html; charset=iso-8859-1'];
-        $body = build_email_body($form_data);
-
-        if (mail($to, $subject, $body, $addl_headers)) {
-            echo
-            '
-                    <script>
-                        window.onload = function() {
-                            alert("Thank you for contacting us. We will be in touch soon!");
-                            location.href = "/";
-                        }
-                    </script>
-                ';
-        } else {
-            error_log(print_r(error_get_last(), true));
-            echo
-                '
-                    <script>
-                        window.onload = function() {
-                            alert("There was an error processing your form. Please try again");
-                            location.href = "/contact";
-                        }
-                    </script>
-                ';
-        }
-    } else {
-        echo
-            '
-                    <script>
-                        window.onload = function() {
-                            alert("Google Recaptcha has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at info@greenwayyard.com.");
-                            location.href = "/contact";
-                        }
-                    </script>
-                ';
-    }
+} else {
+    $valid = false;
 }
+
+// passing true in constructor enables exceptions in PHPMailer
+$mail = new PHPMailer(true);
+
+try {
+    // Server settings
+    $mail->SMTPDebug = false; // for detailed debug output
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+
+    $mail->Username = 'cmcgrath@greenwayyard.com';
+    $mail->Password = 'nqniltozuxzasnbh';
+
+    // Sender and recipient settings
+    $mail->setFrom('cmcgrath@greenwayyard.com', 'Website Quote Form');
+    $mail->addAddress('info@greenwayyard.com', 'Greenway Yard');
+    $mail->addReplyTo($form_data['email'], $form_data['name']); // to set the reply to
+
+    // Setting the email content
+    $mail->IsHTML(true);
+    $mail->Subject = "Website Quote Request";
+    $mail->Body = build_email_body($form_data);
+
+    $mail->send();
+    echo "Email message sent.";
+} catch (Exception $e) {
+    echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+}
+
 
 function build_email_body($details)
 {
