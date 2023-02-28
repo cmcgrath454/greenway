@@ -49,7 +49,7 @@ if (true) {
     }
 
     if ($valid) {
-        $to = 'paul@greenwayyard.com';
+        $to = 'info@greenwayyard.com';
         $server_email = 'quotes@greenwayyard.com';
         $subject = 'Website Quote Request:';
         $subject .= $form_data['name'];
@@ -84,7 +84,7 @@ if (true) {
             '
                     <script>
                         window.onload = function() {
-                            alert("Our system has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at greenway_grounds@yahoo.com.");
+                            alert("Google Recaptcha has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at info@greenwayyard.com.");
                             location.href = "/contact";
                         }
                     </script>
