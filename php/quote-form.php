@@ -10,7 +10,6 @@ if (true) {
         'zip' => $_POST['zip'],
         'type' => '',
         'style' => '',
-        'is_new' => $_POST['isnewhome'],
         'builder' => $_POST['builder'],
         'desc' => $_POST['description'],
         'budget' => $_POST['budget'],
