@@ -18,6 +18,11 @@ if (true) {
         'comments' => $_POST['comments']
     );
 
+    if (isset($_POST['is_new']))
+        $form_data['is_new'] = $_POST['is_new'];
+    else
+        $form_data['is_new'] = false;
+
     if (isset($_POST['type']))
         $form_data['type'] = get_checkbox_as_string($_POST['type']);
     if (isset($_POST['style']))
@@ -62,7 +67,7 @@ if (true) {
                     <script>
                         window.onload = function() {
                             alert("Thank you for contacting us. We will be in touch soon!");
-                            location.href = "/index";
+                            location.href = "/";
                         }
                     </script>
                 ';
@@ -79,7 +84,6 @@ if (true) {
                 ';
         }
     } else {
-        error_log(print_r($response_data), true);
         echo
             '
                     <script>
