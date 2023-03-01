@@ -25,8 +25,6 @@ $form_data = array(
     'comments' => $_POST['comments']
 );
 
-echo(print_r($form_data));
-
 if (isset($_POST['type']))
     $form_data['type'] = get_checkbox_as_string($_POST['type']);
 if (isset($_POST['style']))
@@ -155,4 +153,4 @@ function get_checkbox_as_string($checkbox_arr)
         }
     }
     return implode(", ", $arr);
-}
+} 
