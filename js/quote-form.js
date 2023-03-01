@@ -146,13 +146,21 @@ function validateOptionChange(e) {
   label.setAttribute("hidden", "");
 }
 
-function submitForm(e) {
+function submitForm(btn) {
+  btn.disabled = true;
+  prevBtn.disable = true;
   if (validatePage(3)) {
+    prevBtn.classList.add("hide-btn-on-submit");
+    prevBtn.innerText = "";
+    btn.innerText = "Sending...";
     grecaptcha.ready(function () {
       grecaptcha.execute("6LfuSRskAAAAAINeGJ_yySvKM40NgKpwRVjwX90o").then(function (token) {
-          document.getElementById("token-response").value = token;
-          document.getElementById("quote-form").submit();
+        document.getElementById("token-response").value = token;
+        document.getElementById("quote-form").submit();
       });
     });
+  } else {
+    prevBtn.disabled = false;
+    btn.disabled = false;
   }
 }
