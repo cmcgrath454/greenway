@@ -452,7 +452,7 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover {
+  .btn:hover:not([disabled]) {
     background: var(--clr-accent);
     transition: 0.3s;
   }
