@@ -58,36 +58,67 @@ if ($response_data['success'] && $response_data > 0.4) {
     $valid = false;
 }
 
-// passing true in constructor enables exceptions in PHPMailer
-$mail = new PHPMailer(true);
+if ($valid) {
+    // passing true in constructor enables exceptions in PHPMailer
+    $mail = new PHPMailer(true);
 
-try {
-    // Server settings
-    $mail->SMTPDebug = false; // for detailed debug output
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    try {
+        // Server settings
+        $mail->SMTPDebug = false; // for detailed debug output
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-    $mail->Username = 'cmcgrath@greenwayyard.com';
-    $mail->Password = 'nqniltozuxzasnbh';
+        $mail->Username = 'cmcgrath@greenwayyard.com';
+        $mail->Password = 'nqniltozuxzasnbh';
 
-    // Sender and recipient settings
-    $mail->setFrom('cmcgrath@greenwayyard.com', 'Website Quote Form');
-    $mail->addAddress('info@greenwayyard.com', 'Greenway Yard');
-    $mail->addReplyTo($form_data['email'], $form_data['name']); // to set the reply to
+        // Sender and recipient settings
+        $mail->setFrom('cmcgrath@greenwayyard.com', 'Website Quote Form');
+        $mail->addAddress('info@greenwayyard.com', 'Greenway Yard');
+        $mail->addReplyTo($form_data['email'], $form_data['name']); // to set the reply to
 
-    // Setting the email content
-    $mail->IsHTML(true);
-    $mail->Subject = "Website Quote Request";
-    $mail->Body = build_email_body($form_data);
+        // Setting the email content
+        $mail->IsHTML(true);
+        $mail->Subject = "Website Quote Request";
+        $mail->Body = build_email_body($form_data);
 
-    $mail->send();
-    echo "Email message sent.";
-} catch (Exception $e) {
-    echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+        $mail->send();
+        echo
+            '
+                <script>
+                    window.onload = function() {
+                        alert("Thank you for contacting us. We will be in touch soon!");
+                        location.href = "/";
+                    }
+                </script>
+            ';
+    } catch (Exception $e) {
+        error_log($mail->ErrorInfo);
+        echo
+            '
+            <script>
+                window.onload = function() {
+                    alert("We\'re sorry, there was an error processing your form. Please try again and if the issue persists, please email us directly at info@greenwayyard.com.");
+                    location.href = "/contact";
+                }
+            </script>
+            ';
+    }
+} else {
+    // Recaptcha Not Verified
+    echo
+        '
+        <script>
+            window.onload = function() {
+                alert("Google Recaptcha has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at info@greenwayyard.com.");
+                location.href = "/contact";
+            }
+        </script>
+        ';
 }
+
 
 
 function build_email_body($details)
