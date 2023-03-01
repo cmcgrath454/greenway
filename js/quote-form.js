@@ -42,7 +42,7 @@ prevBtn.addEventListener("click", () => {
   prevFormPage.classList.add("active");
 });
 
-const newHomeRadios = document.querySelectorAll("input[name='isnewhome'");
+const newHomeRadios = document.querySelectorAll("input[name='is_new']");
 
 newHomeRadios.forEach((radioBtn) => {
   radioBtn.addEventListener("click", () => {
@@ -92,7 +92,7 @@ function validatePage(pageNo) {
         showError(zip);
         valid = false;
       }
-      const newHomeRadios = document.getElementsByName("isnewhome");
+      const newHomeRadios = document.getElementsByName("is_new");
       if (!(newHomeRadios[0].checked || newHomeRadios[1].checked)) {
         showError(newHomeRadios[0]);
         valid = false;

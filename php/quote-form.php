@@ -17,6 +17,7 @@ $form_data = array(
     'zip' => $_POST['zip'],
     'type' => '',
     'style' => '',
+    'is_new' => $_POST['is_new'],
     'builder' => $_POST['builder'],
     'desc' => $_POST['description'],
     'budget' => $_POST['budget'],
@@ -24,10 +25,7 @@ $form_data = array(
     'comments' => $_POST['comments']
 );
 
-if (isset($_POST['is_new']))
-    $form_data['is_new'] = $_POST['is_new'];
-else
-    $form_data['is_new'] = false;
+echo(print_r($form_data));
 
 if (isset($_POST['type']))
     $form_data['type'] = get_checkbox_as_string($_POST['type']);
