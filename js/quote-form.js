@@ -162,5 +162,6 @@ function submitForm(btn) {
   } else {
     prevBtn.disabled = false;
     btn.disabled = false;
+    return false;
   }
 }

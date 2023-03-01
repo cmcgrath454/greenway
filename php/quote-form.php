@@ -1,10 +1,11 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+require(__DIR__.'/../vendor/phpmailer/phpmailer/src/Exception.php');
+require(__DIR__.'/../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require(__DIR__.'/../vendor/phpmailer/phpmailer/src/SMTP.php');
 
-require '../vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 $form_data = array(
     'name' => $_POST['name'],
@@ -108,6 +109,7 @@ if ($valid) {
     }
 } else {
     // Recaptcha Not Verified
+    error_log(print_r($response_data));
     echo
         '
         <script>
