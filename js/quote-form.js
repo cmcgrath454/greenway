@@ -4,6 +4,15 @@ const submitBtn = document.querySelector(".btn-submit");
 const formPages = document.querySelectorAll(".quote-form>fieldset");
 let i = 0;
 
+document.getElementById('quote-form').addEventListener("keypress", (event) => {
+  if (event.key =="Enter") {
+    if (i < formPages.length - 1) {
+      event.preventDefault();
+      nextBtn.click();
+    }
+  }
+})
+
 nextBtn.addEventListener("click", () => {
   const currentFormPage = formPages[i];
   const nextFormPage = currentFormPage.nextElementSibling;
@@ -17,7 +26,7 @@ nextBtn.addEventListener("click", () => {
 
     if (i == 1) prevBtn.toggleAttribute("hide");
 
-    if (i == formPages.length - 1) {
+    if (i >= formPages.length - 1) {
       nextBtn.toggleAttribute("hide");
       submitBtn.toggleAttribute("hide");
     }
@@ -116,9 +125,9 @@ function validatePage(pageNo) {
         showError(date);
         valid = false;
       }
-    default:
-      console.error("contact form page number out of bounds");
       break;
+    default:
+      throw("contact form page number out of bounds");
   }
   return valid;
 }
