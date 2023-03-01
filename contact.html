@@ -98,11 +98,11 @@
           <label for="zip" class="form-error" hidden>Please enter a valid zip code</label>
           <fieldset class="options-group">
             <h3>Is this on new construction?</h3>
-            <label for="is_new" class="form-error" hidden>Please select Yes or No</label>
+            <label for="isnewhome" class="form-error" hidden>Please select Yes or No</label>
             <label for="newhome-true" class="option-list-item">
               <input
                 type="radio"
-                name="is_new"
+                name="isnewhome"
                 value="true"
                 id="newhome-true"
                 class="form-error"
@@ -112,7 +112,7 @@
             <label for="newhome-false" class="option-list-item">
               <input
                 type="radio"
-                name="is_new"
+                name="isnewhome"
                 value="false"
                 id="newhome-false"
                 class="form-error"
@@ -233,7 +233,7 @@
             type="submit"
             name="quote-form"
             value="Submit"
-            onclick="return submitForm(this)"
+            onclick="submitForm()"
             class="btn btn-submit text-primary-dark"
             hide>
             Submit
