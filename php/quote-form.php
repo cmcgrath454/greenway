@@ -47,12 +47,30 @@ $context = stream_context_create($options);
 $verify_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
 $response_data = json_decode($verify_response, true);
 
-$valid = true;
+$valid = false;
 
 if ($response_data['success'] && $response_data > 0.4) {
     $valid = true;
+    echo
+        '
+            <script>
+                window.onload = function() {
+                    alert("Thank you for contacting us. We will be in touch soon!");
+                    location.href = "/";
+                }
+            </script>
+        ';
 } else {
     $valid = false;
+    echo
+        '
+        <script>
+            window.onload = function() {
+                alert("Google Recaptcha has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at info@greenwayyard.com.");
+                location.href = "/contact";
+            }
+        </script>
+        ';
 }
 
 if ($valid) {
@@ -82,39 +100,16 @@ if ($valid) {
         $mail->Body = build_email_body($form_data);
 
         $mail->send();
-        echo
-            '
-                <script>
-                    window.onload = function() {
-                        alert("Thank you for contacting us. We will be in touch soon!");
-                        location.href = "/";
-                    }
-                </script>
-            ';
     } catch (Exception $e) {
         error_log($mail->ErrorInfo);
-        echo
-            '
-            <script>
-                window.onload = function() {
-                    alert("We\'re sorry, there was an error processing your form. Please try again and if the issue persists, please email us directly at info@greenwayyard.com.");
-                    location.href = "/contact";
-                }
-            </script>
-            ';
+        error_log(print_r($form_data, true));
     }
 } else {
     // Recaptcha Not Verified
-    error_log(print_r($response_data));
-    echo
-        '
-        <script>
-            window.onload = function() {
-                alert("Google Recaptcha has identified this as spam. If this isn\'t the case, we apologize and ask that you please email us directly at info@greenwayyard.com.");
-                location.href = "/contact";
-            }
-        </script>
-        ';
+    error_log(print_r($data, true));
+    error_log(print_r($response_data, true));
+    error_log(print_r($form_data, true));
+    
 }
 
 
