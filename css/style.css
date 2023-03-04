@@ -85,7 +85,7 @@ picture {
   --size-5: 3.5rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   :root {
     --fs-primary-heading: 2.5rem;
     --fs-accent-heading: 4.5rem;
@@ -370,7 +370,7 @@ input[type="number"] {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 992px) {
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -534,9 +534,10 @@ nav ul {
   background-color: rgba(255, 0, 0, 0.1);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   header > nav {
     padding-inline: 3rem;
+    padding-block: 2rem;
   }
 
   .logo {
@@ -549,7 +550,7 @@ nav ul {
     background: 0;
     width: 50%;
     padding: 0;
-    font-size: var(--fs-body);
+    font-size: calc(var(--fs-body)*1.125);
   }
 
   .main-navigation > li > img,
@@ -629,7 +630,7 @@ footer > hr {
   height: 1px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .footer-icons {
     width: 30%;
   }
@@ -707,7 +708,7 @@ footer > hr {
   min-height: 60vh;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .hero h1 {
     padding-inline: 15%;
   }
@@ -910,7 +911,7 @@ textarea.form-error {
   /* display: inline; */
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -973,7 +974,7 @@ textarea.form-error {
   object-fit: cover;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .services-wrapper {
     margin-inline: auto;
   }
@@ -1039,7 +1040,7 @@ ol.processes > li {
   margin-block: 5em;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .process-header {
     padding-block: 5%;
   }
@@ -1125,7 +1126,7 @@ ol.processes > li {
   object-fit: cover;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   .service-page h1 {
     font-size: 5rem;
     margin-block: 0.5em;
@@ -1175,7 +1176,7 @@ h1.fade-on-scroll {
   animation: fade-in 1s ease-in both;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 992px) {
   @keyframes fade-in-to-75 {
     to {
       opacity: 0.75;
