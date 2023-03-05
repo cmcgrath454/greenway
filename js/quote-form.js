@@ -163,7 +163,7 @@ function submitForm(btn) {
     prevBtn.innerText = "";
     btn.innerText = "Sending...";
     grecaptcha.ready(function () {
-      grecaptcha.execute("6LfuSRskAAAAAINeGJ_yySvKM40NgKpwRVjwX90o").then(function (token) {
+      grecaptcha.execute("6LdWE9UkAAAAAKcp25hq1COnrdbw_Nl3Fs5Ho5jq").then(function (token) {
         document.getElementById("token-response").value = token;
         document.getElementById("quote-form").submit();
       });

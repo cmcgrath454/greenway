@@ -7,6 +7,8 @@ require(__DIR__.'/../vendor/phpmailer/phpmailer/src/SMTP.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+include('../../../../secrets/secrets.php');
+
 $form_data = array(
     'name' => $_POST['name'],
     'phone' => $_POST['phone'],
@@ -32,7 +34,7 @@ if (isset($_POST['style']))
 
 $token = $_POST['token-response'];
 $ipaddress = $_SERVER['REMOTE_ADDR'];
-$secret = "6LfuSRskAAAAABCcbfA5yT30wnZy_UHsz8UC-FDk";
+$secret = $greenwaySecretKey;
 
 $data = array('secret' => $secret, 'response' => $token, 'remoteip' => $ipaddress);
 $options = array(
