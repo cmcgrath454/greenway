@@ -1,8 +1,8 @@
 <?php
 
-require(__DIR__.'/../vendor/phpmailer/phpmailer/src/Exception.php');
-require(__DIR__.'/../vendor/phpmailer/phpmailer/src/PHPMailer.php');
-require(__DIR__.'/../vendor/phpmailer/phpmailer/src/SMTP.php');
+require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php');
+require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -51,7 +51,12 @@ $response_data = json_decode($verify_response, true);
 
 $valid = false;
 
-if ($response_data['success'] && $response_data > 0.4) {
+if (!$response_data['success']) {
+    error_log(print_r($response_data, true));
+    $valid = true;
+}
+
+if ($response_data['score'] > 0.4) {
     $valid = true;
     echo
         '
@@ -111,7 +116,7 @@ if ($valid) {
     error_log(print_r($data, true));
     error_log(print_r($response_data, true));
     error_log(print_r($form_data, true));
-    
+
 }
 
 
@@ -150,4 +155,4 @@ function get_checkbox_as_string($checkbox_arr)
         }
     }
     return implode(", ", $arr);
-} 
+}
