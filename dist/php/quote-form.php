@@ -94,7 +94,7 @@ if ($valid) {
         $mail->Port = 587;
 
         $mail->Username = 'cmcgrath@greenwayyard.com';
-	$mail->Password = $emailAppKey;	
+        $mail->Password = 'nqniltozuxzasnbh';
 
         // Sender and recipient settings
         $mail->setFrom('cmcgrath@greenwayyard.com', 'Website Quote Form');

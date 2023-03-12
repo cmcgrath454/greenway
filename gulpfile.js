@@ -26,7 +26,6 @@ function minifyJS() {
 
 function buildStyles() {
     return src('src/sass/style.scss')
-        .pipe(init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(dest('dist/css'));
@@ -35,7 +34,8 @@ function buildStyles() {
 function buildStylesDev() {
     return src('src/sass/style.scss')
         .pipe(init())
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(write('./maps'))
         .pipe(dest('dist/css'));
 }
