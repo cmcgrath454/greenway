@@ -1,0 +1,31 @@
+{
+  "name": "greenway",
+  "version": "1.0.0",
+  "description": "greenway yard and landscape website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server .\\dist\\ -p 8000",
+    "dev": "concurrently \"npm start\" \"gulp dev\" \"browser-sync start --proxy \"http://127.0.0.1:8000\" --files \".\\dist\\css\\style.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmcgrath454/greenway.git"
+  },
+  "author": "Colin McGrath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmcgrath454/greenway/issues"
+  },
+  "homepage": "https://github.com/cmcgrath454/greenway#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-if": "^3.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.59.2"
+  }
+}
