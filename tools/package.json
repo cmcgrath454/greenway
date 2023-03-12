@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "critical": "^5.0.4"
-  },
-  "type": "module"
-}
