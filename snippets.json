@@ -1,7 +1,0 @@
-{
-    "css": {
-        "snippets": {
-            "@medialaptop": "@media (min-width: 900px) {${1}}"
-        }
-    }
-}
