@@ -1,8 +1,8 @@
 <?php
 
-require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php');
-require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php');
-require(__DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php');
+require(__DIR__ . '/../../../../vendor/phpmailer/phpmailer/src/Exception.php');
+require(__DIR__ . '/../../../../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+require(__DIR__ . '/../../../../vendor/phpmailer/phpmailer/src/SMTP.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -94,7 +94,7 @@ if ($valid) {
         $mail->Port = 587;
 
         $mail->Username = 'cmcgrath@greenwayyard.com';
-        $mail->Password = 'nqniltozuxzasnbh';
+        $mail->Password = $emailAppKey;
 
         // Sender and recipient settings
         $mail->setFrom('cmcgrath@greenwayyard.com', 'Website Quote Form');
