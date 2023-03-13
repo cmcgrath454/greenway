@@ -2,7 +2,7 @@
 This website can be accessed at https://greenwayyard.com
 
 ## File Structure
-'dist' directory is deployed to hosting service
+'dist' directory is deployed to hosting service (on push event, through GitHub Actions)
 
 'src' directory holds the source files used to build the 'dist' directory
 
