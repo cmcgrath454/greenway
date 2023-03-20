@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server .\\dist\\ -p 8000",
-    "dev": "concurrently \"npm start\" \"gulp dev\" \"browser-sync start --proxy \"http://127.0.0.1:8000\" --files \".\\dist\\css\\style.css\""
+    "start": "http-server ./dist -p 8000",
+    "dev": "concurrently \"npm start\" \"gulp dev\" \"browser-sync start --proxy \"http://127.0.0.1:8000\" --files \"./dist/css/style.css\"\""
   },
   "repository": {
     "type": "git",
