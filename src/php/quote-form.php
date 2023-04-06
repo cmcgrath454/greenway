@@ -103,7 +103,7 @@ if ($valid) {
 
         // Setting the email content
         $mail->IsHTML(true);
-        $mail->Subject = "Website Quote Request";
+        $mail->Subject = $form_data['name'] . ' Quote Request';
         $mail->Body = build_email_body($form_data);
 
         $mail->send();
