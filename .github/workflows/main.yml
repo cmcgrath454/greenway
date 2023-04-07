@@ -7,6 +7,8 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v3
+      with: 
+        ref: main
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
