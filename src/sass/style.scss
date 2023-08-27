@@ -406,7 +406,8 @@ a.btn {
   font-family: var(--ff-primary);
   padding: 0.75em 1.125em;
   cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 section {
@@ -455,6 +456,17 @@ a {
     background: var(--clr-accent);
     transition: 0.3s;
   }
+}
+
+header.landscape-bg {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgb(255, 255, 255)
+    ),
+    url("../assets/process/backyard-patio.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 /* Main Navigation */
@@ -547,7 +559,7 @@ nav ul {
     display: flex;
     position: relative;
     background: 0;
-    width: 50%;
+    width: 60%;
     padding: 0;
     font-size: calc(var(--fs-body) * 1.125);
   }
@@ -643,7 +655,8 @@ footer > hr {
 
 .hero {
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/homepage/pergola.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/homepage/pergola.jpg");
   background-size: cover;
   background-position: top;
   display: flex;
@@ -692,7 +705,8 @@ footer > hr {
 }
 
 .home-process {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/homepage/tree-seedlings.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/homepage/tree-seedlings.jpg");
   background-size: cover;
   min-height: 60vh;
 }
@@ -703,7 +717,11 @@ footer > hr {
 }
 
 .home-cta {
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../assets/homepage/markup.png");
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("../assets/homepage/markup.png");
   background-size: cover;
   min-height: 60vh;
 }
@@ -932,7 +950,11 @@ textarea.form-error {
 /* Services Page */
 
 #services-page header {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 50%, rgb(255, 255, 255)),
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgb(255, 255, 255)
+    ),
     url("../assets/process/backyard-patio.jpg");
   background-position: center;
   background-size: cover;
@@ -995,7 +1017,11 @@ textarea.form-error {
 
 /* Process Page */
 #process-page header {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 50%, rgb(255, 255, 255)),
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgb(255, 255, 255)
+    ),
     url("../assets/process/backyard-patio.jpg");
   background-position: center;
   background-size: cover;
@@ -1197,5 +1223,81 @@ h1.fade-on-scroll {
 
   .services-wrapper li {
     animation-delay: calc(var(--order) * 0.3s);
+  }
+}
+
+.gallery {
+  padding-inline: 5%;
+  padding-top: 2rem;
+
+  display: grid;
+  grid-gap: 1vw;
+  grid-template-columns: 1fr;
+
+  .image-box {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  @media (min-width: 680px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+
+    .image-box {
+      &:nth-child(1n + 0) {
+        grid-column: unset;
+        grid-row: unset;
+      }
+
+      &:nth-child(3n + 1) {
+        grid-column: span 2;
+      }
+
+      &:last-child {
+        // Avoid half filled row at the bottom
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 20vw;
+
+    .image-box {
+      &:nth-child(9n + 1),
+      &:nth-child(9n + 9) {
+        grid-column: span 5;
+      }
+
+      &:nth-child(9n + 2),
+      &:nth-child(9n + 8) {
+        grid-column: span 3;
+      }
+
+      &:nth-child(9n + 3),
+      &:nth-child(9n + 5) {
+        grid-column: span 2;
+      }
+
+      &:nth-child(9n + 4),
+      &:nth-child(9n + 6),
+      &:nth-child(9n + 7) {
+        grid-column: span 4;
+      }
+
+      &:last-child {
+        display: block;
+      }
+    }
   }
 }
